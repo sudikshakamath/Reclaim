@@ -8,5 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="projectblue">#279AF1</color>
-    <color name="projectorange">#F17E27</color>
+    <color name="projectlightblue">#9BB1FF</color>
+    <color name="projectpurple">#9996EE</color>
+    <color name="projectlightpurple">#8D5A97</color>
+    <color name="projectpink">#F7AF9D</color>
+    <color name="projectlightpink">#F1DAC4</color>
+    <color name="grey">#3C3C3C</color>
 </resources>

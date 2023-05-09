@@ -3,6 +3,8 @@ package com.example.project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView emailTextView ;
     private TextView passwordTextView ;
 
+    private TextView reclaim ;
     private Button loginbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
         passwordTextView =(TextView) findViewById(R.id.password);
         loginbtn= (Button) findViewById(R.id.loginbtn);
+        reclaim = (TextView) findViewById(R.id.reclaim);
+//        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(
+//                reclaim,
+//                PropertyValuesHolder.ofFloat(View.ALPHA, 0f, 1f)
+//        );
+//        animator.setStartDelay(500); // Set a delay of 500 milliseconds before starting the animation
+//        animator.setDuration(5000); // Set the duration of the animation to 1 second
+//        animator.start(); // Start the animation
+        String text = "reclaim";
+        CursiveTextAnimation animation = new CursiveTextAnimation(reclaim, text);
+        animation.setDuration(4000); // Set the duration of the animation to 5 seconds
+        reclaim.startAnimation(animation);
+
 
 
 
@@ -112,5 +128,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+
     }
 }

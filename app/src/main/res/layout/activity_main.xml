@@ -31,7 +31,8 @@
             android:text="reclaim"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="70sp" />
+            android:textSize="70sp"/>
+<!--            android:stateListAnimator="cursi"-->
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -40,6 +41,7 @@
         android:layout_margin="30dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
+        app:cardBackgroundColor="@color/white"
         android:background="@drawable/custom_edittext">
 
         <LinearLayout
@@ -68,9 +70,9 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="8dp"
-
                 android:fontFamily="@font/raleway_medium"
                 android:hint="Email"
+                android:textColorHint="@color/grey"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
@@ -83,7 +85,7 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-
+                android:textColorHint="@color/grey"
                 android:fontFamily="@font/raleway_medium"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -97,7 +99,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/projectblue"
-
+                android:textColor="@color/white"
                 android:fontFamily="@font/raleway_medium"
                 android:text="Login"
                 android:textSize="18sp"

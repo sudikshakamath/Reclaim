@@ -6,13 +6,50 @@
     android:background="@color/projectblue"
     tools:context=".AlertFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Alert"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <!-- Add a title for the list -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Medications to take"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <!-- Add a list view to display the medications -->
+        <ListView
+            android:id="@+id/medications_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="16dp"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="vertical" />
+
+        <!-- Add a button to dismiss the alert -->
+<!--        <Button-->
+<!--            android:id="@+id/dismiss_button"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/raleway_medium"-->
+<!--            android:text="Dismiss"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:textColor="@color/white" />-->
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Add"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
 
 </FrameLayout>

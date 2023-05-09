@@ -14,12 +14,24 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 public class questionnaire2 extends AppCompatActivity implements View.OnClickListener {
     Button A, B, C, D, submitbttn;
     TextView question;
     String ans = "";
     String fin = "";
     int curr = 0;
+    ArrayList <String> choices = new ArrayList<>();
+    FirebaseUser mUser;
+    DatabaseReference mDatabase,userRef;
 
     ImageView image;
 
@@ -40,6 +52,10 @@ public class questionnaire2 extends AppCompatActivity implements View.OnClickLis
         D.setOnClickListener(this);
         submitbttn.setOnClickListener(this);
         loadNewQuestion();
+
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("questions");
+        userRef = FirebaseDatabase.getInstance().getReference("users");
         }
 
     @Override
@@ -47,6 +63,7 @@ public class questionnaire2 extends AppCompatActivity implements View.OnClickLis
         Button clicked=(Button) view;
         if(clicked.getId()==R.id.submit){
             fin+=ans;
+            choices.add(ans);
             curr++;
             loadNewQuestion();
         }
@@ -73,6 +90,19 @@ public class questionnaire2 extends AppCompatActivity implements View.OnClickLis
         submitbttn.setText(questionnaire_qa.options[curr][4]);
     }
     void finishQuiz(){
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = mUser.getUid();
+        String curr_freq = choices.get(0);
+        String target_freq = choices.get(1);
+        String time_period = choices.get(2);
+        mDatabase.child(uid).child("choices").child("curr_freq").setValue(curr_freq);
+        mDatabase.child(uid).child("choices").child("target_freq").setValue(target_freq);
+        mDatabase.child(uid).child("choices").child("time_period").setValue(time_period);
+        int months = Integer.parseInt(time_period.substring(0, 1));
+        int daysLeftValue = months * 30;
+        userRef.child(uid).child("days_left").setValue(daysLeftValue);
+        userRef.child(uid).child("days_sober").setValue(0);
+
         new AlertDialog.Builder(this)
                 .setTitle("Welcome dear user!")
                 .setMessage("We are so excited to meet you. Now that we have all the information we need, you just have to sit back and relax.")

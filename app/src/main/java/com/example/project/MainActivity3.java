@@ -5,16 +5,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.project.databinding.ActivityMain3Binding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class MainActivity3 extends AppCompatActivity {
 
     ActivityMain3Binding binding;
+    FloatingActionButton alertbtn;
 //    BottomNavigationView bottomNavigationView;
 
     @Override
@@ -44,6 +45,13 @@ public class MainActivity3 extends AppCompatActivity {
                     break;
             }
             return true;
+        });
+        alertbtn=(FloatingActionButton) findViewById(R.id.alertbtn);
+        alertbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new AlertFragment());
+            }
         });
     }
     private void replaceFragment(Fragment fragment) {

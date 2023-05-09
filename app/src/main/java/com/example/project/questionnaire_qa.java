@@ -9,6 +9,6 @@ public class questionnaire_qa {
     public static String options[][]={
             {"Often","Sometimes","Rarely","Almost Never", "Next"},
             {"Never","On rare occasions","Sometimes","I'm not sure", "Next"},
-            {"1 month","6 weeks","3 months","9 months", "Next"}
+            {"1 month","3 months","6 months","9 months", "Next"}
     };
 }
