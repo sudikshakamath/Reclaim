@@ -1,18 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/projectblue"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>
+    <ImageView
+        android:id="@+id/brainicon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="297dp"
+        android:background="@drawable/brainicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_editor_absoluteX="50dp"
+        app:layout_editor_absoluteY="50dp" />
 
-</FrameLayout>
+
+    <!-- Motivational Quotes -->
+    <TextView
+        android:id="@+id/quoteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/brainicon"
+        android:layout_marginTop="40dp"
+        android:background="@color/white"
+        android:fontFamily="@font/raleway_medium"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/reclaim"
+        android:layout_width="224dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="54dp"
+        android:fontFamily="@font/cedarville_cursive"
+        android:text="reclaim"
+        android:textColor="@color/white"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_editor_absoluteX="140dp"
+        app:layout_editor_absoluteY="40dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quoteTextView"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="Start"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
+            android:progress="75"
+            android:max="100"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/circular_progress_bar"/>
+
+        <TextView
+            android:id="@+id/end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/postsNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quoteTextView"
+        android:layout_centerHorizontal="true"
+        android:text="27"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/posts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/postsNumber"
+        android:fontFamily="@font/raleway_medium"
+        android:text="Days Sober"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/callButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="20dp"
+        android:text="Emergency"
+        android:onClick="onCallButtonClicked" />
+
+    <EditText
+        android:id="@+id/goalsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/posts"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/raleway_medium"
+        android:hint="Enter your goal for the day"
+        android:padding="10dp" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/goalsEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Save Goals" />
+
+    <!-- Goals TextView -->
+    <TextView
+        android:id="@+id/goalsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/saveButton"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-light" />
+
+</RelativeLayout>

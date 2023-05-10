@@ -21,8 +21,8 @@
         android:fontFamily="@font/raleway_medium"
         android:layout_below="@id/textrehab"
         android:text="Find Rehab Centres Nearby"
-        android:textColor="@color/material_dynamic_primary0"
-        android:textStyle="bold"/>
+        android:textColor="@color/black"
+        />
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -38,9 +38,9 @@
         android:fontFamily="@font/raleway_medium"
         android:padding="20dp"
         android:text="welcome to the first step in finding rehab centres near you!"
-        android:textColor="@color/material_dynamic_neutral_variant100"
+        android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold"
+
         />
 </RelativeLayout>
 
