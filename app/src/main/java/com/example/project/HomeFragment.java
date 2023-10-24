@@ -33,6 +33,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Handler;
 
 public class HomeFragment extends Fragment {
 
@@ -43,25 +44,25 @@ public class HomeFragment extends Fragment {
     private TextView goalsTextView;
     private List<String> goalsList;
 
-    private String[] quotes = {
-            "Don’t let the past steal your present.",
-            "Courage isn’t having the strength to go on – it is going on when you have no strength.",
-            "If you can quit for a day, you can quit for a lifetime.",
-            "It Does Not Matter How Slowly You Go as Long As You Do Not Stop.",
-            "The only person you are destined to become is the person you decide to be."
-    };
+//    private String[] quotes = {
+//            "Don’t let the past steal your present.",
+//            "Courage isn’t having the strength to go on – it is going on when you have no strength.",
+//            "If you can quit for a day, you can quit for a lifetime.",
+//            "It Does Not Matter How Slowly You Go as Long As You Do Not Stop.",
+//            "The only person you are destined to become is the person you decide to be."
+//    };
 
-    private Random random = new Random();
-
-    private Runnable changeQuoteRunnable = new Runnable() {
-        @Override
-        public void run() {
-            int randomIndex = random.nextInt(quotes.length);
-            String randomQuote = quotes[randomIndex];
-            quoteTextView.setText(randomQuote);
-            quoteTextView.postDelayed(changeQuoteRunnable, 5000); // Refresh every 5 seconds
-        }
-    };
+//    private Random random = new Random();
+//
+//    private Runnable changeQuoteRunnable = new Runnable() {
+//        @Override
+//        public void run() {
+//            int randomIndex = random.nextInt(quotes.length);
+//            String randomQuote = quotes[randomIndex];
+//            quoteTextView.setText(randomQuote);
+//            quoteTextView.postDelayed(changeQuoteRunnable, 5000); // Refresh every 5 seconds
+//        }
+//    };
 
     private Button callButton;
 
@@ -97,6 +98,20 @@ public class HomeFragment extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
         DatabaseReference userRef = database.getReference("users").child(uid);
+        userRef.child("name").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String name = dataSnapshot.getValue(String.class);
+// Do something with the user's name
+                quoteTextView.setText("Hello "+name+" and congratulations !");
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+// Handle errors
+            }
+        });
         userRef.child("days_sober").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -127,19 +142,22 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+
+//        int charIndex = 0;
+
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        quoteTextView.post(changeQuoteRunnable); // Start the quote refreshing
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        quoteTextView.removeCallbacks(changeQuoteRunnable); // Stop the quote refreshing
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        quoteTextView.post(changeQuoteRunnable); // Start the quote refreshing
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        quoteTextView.removeCallbacks(changeQuoteRunnable); // Stop the quote refreshing
+//    }
 
     private void saveGoal() {
         String goal = goalsEditText.getText().toString().trim();

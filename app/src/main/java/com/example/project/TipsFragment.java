@@ -38,13 +38,14 @@ import java.util.Locale;
 
 public class TipsFragment extends Fragment {
 
-    Button b1;
+    Button b1, b2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_tips, container, false);
 
         b1=(Button) rootView.findViewById(R.id.findrehab);
+        b2 = (Button) rootView.findViewById(R.id.chatgpt);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,8 +54,14 @@ public class TipsFragment extends Fragment {
             }
         });
         // Inflate the layout for this fragment
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myintent= new Intent(getContext(), chatscreen.class);
+                startActivity(myintent);
+            }
+        });
         return rootView;
     }
-
-
 }

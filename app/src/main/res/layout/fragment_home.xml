@@ -23,19 +23,29 @@
 
 
     <!-- Motivational Quotes -->
+<!--    <TextView-->
+<!--        android:id="@+id/quoteTextView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/brainicon"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:background="@drawable/gradient1"-->
+<!--        android:fontFamily="@font/raleway_medium"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="20dp" />-->
+
     <TextView
         android:id="@+id/quoteTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/brainicon"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
         android:fontFamily="@font/raleway_medium"
         android:gravity="center"
-        android:textColor="#000000"
-        android:textSize="50dp"
-        android:textStyle="bold" />
 
+        android:textColor="@color/white"
+        android:textSize="25dp" />
     <TextView
         android:id="@+id/reclaim"
         android:layout_width="224dp"
@@ -62,16 +72,19 @@
         android:gravity="center">
 
         <TextView
+            android:paddingLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="60dp"
             android:fontFamily="@font/raleway_medium"
             android:text="Start"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <ProgressBar
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="10dp"
@@ -79,16 +92,18 @@
             android:progress="75"
             android:max="100"
             style="?android:attr/progressBarStyleHorizontal"
-            android:progressDrawable="@drawable/circular_progress_bar"/>
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:outlineAmbientShadowColor="@color/projectlightpink"/>
 
         <TextView
             android:id="@+id/end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="End"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_gravity="end" />
+            android:layout_gravity="end"
+            android:paddingRight="10dp"/>
 
     </LinearLayout>
 
@@ -99,7 +114,7 @@
         android:layout_below="@id/quoteTextView"
         android:layout_centerHorizontal="true"
         android:text="27"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="26sp"
@@ -112,6 +127,7 @@
         android:layout_below="@id/postsNumber"
         android:fontFamily="@font/raleway_medium"
         android:text="Days Sober"
+        android:paddingLeft="10dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp" />
@@ -122,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="200dp"
         android:layout_marginTop="20dp"
         android:text="Emergency"
         android:onClick="onCallButtonClicked" />
@@ -142,7 +158,7 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/goalsEditText"
+        android:layout_below="@id/goalsTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="Save Goals" />
@@ -152,12 +168,12 @@
         android:id="@+id/goalsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/saveButton"
+        android:layout_below="@id/goalsEditText"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-light" />
+        android:fontFamily="@font/raleway_medium" />
 
 </RelativeLayout>

@@ -9,15 +9,15 @@
         <item
             android:id="@+id/Alternative"
             android:title="Alternative"
-            android:icon="@drawable/alternative"/>
+            android:icon="@drawable/baseline_lightbulb_24"/>
         <item
             android:id="@+id/alert"
             android:title=""
             android:icon="@drawable/baseline_add_alert_24"/>
         <item
             android:id="@+id/Tips"
-            android:title="Tips"
-            android:icon="@drawable/tips"/>
+            android:title="Rehab"
+            android:icon="@drawable/baseline_health_and_safety_24"/>
         <item
             android:id="@+id/Account"
             android:title="Account"
